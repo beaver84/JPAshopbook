@@ -24,6 +24,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
 
+import static org.assertj.core.api.Assertions.*;
+
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
 class ItemRepositoryTest {
@@ -110,6 +112,16 @@ class ItemRepositoryTest {
         for(Item item : itemList){
             System.out.println(item.toString());
         }
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명1");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명2");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명3");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명4");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명5");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명6");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명7");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명8");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명9");
+        assertThat(itemList).extracting(Item::getItemDetail).contains("테스트 상품 상세 설명10");
     }
 
     @Test
